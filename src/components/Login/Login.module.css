@@ -1,0 +1,80 @@
+.login{
+    display: flex;
+    gap: 2rem;
+}
+
+.login_content{
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+  
+}
+.hedding{
+    font-size: 4rem;
+    word-wrap: break-word;
+    text-align: left;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.login_content p{
+    text-align: left;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.login_content .inputlable{
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login_content .input{
+    background-color: rgb(212, 207, 207);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.fp {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.btn{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.lbtn{
+    background-color: rgb(187, 2, 101);
+    color: white;
+    width: 250px;
+}
+.cbtn{
+    background-color:#fff;
+    color: rgb(187, 2, 101);
+    width: 250px; 
+    border:  rgb(187, 2, 101) solid;
+}
+
+.login_img {
+    flex: 1; /* This allows the image container to take up the remaining space */
+    height: 100vh; /* Set the height to full viewport height */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.login_img img {
+    height: 100%; /* Set the height to 100% of the container */
+    width: 100%; /* Set the width to 100% of the container */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+}

@@ -1,0 +1,33 @@
+.product_details {
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+}
+
+.product_view{
+    display: flex;
+}
+.product_view .prod_cont{
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+}
+
+.product_details img {
+    width: 250px; 
+    height: 250px;
+}
+
+.product_details h2 {
+    margin-bottom: 10px; 
+    background-color: aqua;
+    padding: 10px;
+    text-align: center;
+}
+
+.product_details p {
+    margin: 10px 0;
+}

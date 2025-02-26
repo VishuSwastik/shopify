@@ -1,0 +1,29 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: linear-gradient( to bottom right, #07021f, #2f0516);
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 11%;
+    align-items: center;
+    
+}
+.home p{
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px;
+    
+}
+.home button{
+    background-image: linear-gradient( to bottom right, #0d043b, #4b0924);
+    width: fit-content;
+    padding-right: 10px;
+    padding-right: 10px;
+    color: rgb(69, 69, 243);
+}
+.home_sc{
+    background-color: rgb(51, 50, 50);
+}

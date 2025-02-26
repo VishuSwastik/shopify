@@ -1,0 +1,35 @@
+.header{
+    padding: 0;
+    width: 100%;
+    background-color: rgb(51, 50, 50);
+    color: white;
+    margin: 0;
+   
+}
+.header_list{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 3rem;
+    padding: 10px;
+    font-size: 20px;
+    
+   
+}
+
+li {
+    padding: 7px;
+    border-radius: 3px;
+}
+li:hover{
+    background-color: aliceblue;
+    color: black;
+    transition: 1s ;
+}
+
+.header_list li img{
+    height: 30px;
+    width: 30px;
+   
+}
