@@ -1,30 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from './FetchUsers';
+import { filterUsers }from './userReducer';
+import styles from './user.module.css';
 
 const UserComponent = () => {
     const dispatch = useDispatch();
-    const { filteredUsers, filterGender } = useSelector(state => state.user);
+    const { filteredUsers, filterGender, loading, error } = useSelector(state => state.user);
 
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
 
     const handleFilterChange = (gender) => {
-        dispatch({ type: 'FILTER_USERS', payload: gender });
+        dispatch(filterUsers(gender));
     };
 
-    const handleDelete = (id) => {
-        dispatch({ type: 'DELETE_USER', payload: id });
-    };
-
-    const handleUpdate = (updatedUser) => {
-        dispatch({ type: 'UPDATE_USER', payload: updatedUser });
-    };
+   
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
+        <div className={styles.users}>
             <h2>User Details</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam ipsum aspernatur atque consequatur assumenda fuga libero a! Iusto ullam aliquam sunt quos minima facere ex quibusdam voluptatum eligendi autem, quisquam adipisci aliquid cumque a assumenda aut dolorem, porro ipsa explicabo! Ab in ullam provident distinctio accusamus dolorum nam aspernatur quia rem iure, corporis sit consectetur sequi blanditiis nemo explicabo, quas maxime molestias sunt. Rerum repellat excepturi illo eius minus commodi, atque laudantium quis necessitatibus suscipit omnis aut delectus. Excepturi totam a adipisci sequi quis, numquam ullam voluptatibus quibusdam repudiandae quae at ratione odit quasi omnis tempore ea maiores corporis assumenda.</p>
             <div>
                 <label>
                     <input type="radio" 
@@ -42,14 +41,14 @@ const UserComponent = () => {
                            onChange={() => handleFilterChange('female')} /> Female
                 </label>
             </div>
-            <table>
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         <th>IMAGE</th>
                         <th>NAME</th>
                         <th>EMAIL</th>
                         <th>GENDER</th>
-                        <th>ACTIONS</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -59,10 +58,7 @@ const UserComponent = () => {
                             <td>{user.name.first} {user.name.last}</td>
                             <td>{user.email}</td>
                             <td>{user.gender}</td>
-                            <td>
-                                <button onClick={() => handleDelete(user.id)}>Delete</button>
-                                <button onClick={() => handleUpdate(user)}>Update</button>
-                            </td>
+                           
                         </tr>
                     ))}
                 </tbody>

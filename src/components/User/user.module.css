@@ -1,0 +1,42 @@
+.users {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.users label {
+    padding: 10px;
+}
+
+.users div {
+    border:solid black 2px;
+    border-radius: 5px;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+     justify-content: center;
+     gap: 7rem;
+}
+
+.users > p,
+.users > h2,
+.users > table {
+    width: 80%;
+    margin: 15px 0px;
+}
+
+.table > thead {
+    background-color: black;
+    color: white;
+}
+
+.table th {
+    padding: 7px 0px 7px 5px;
+}
+
+.table td {
+    text-align: center;
+}
+.table td button:last-child {
+    margin-left: 8px;
+}

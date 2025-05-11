@@ -1,8 +1,8 @@
+// FetchUsers.js
 import axios from 'axios';
-
-export const FETCH_USERS = 'FETCH_USERS';
+import { setUsers } from './userReducer'; // Adjust the path as necessary
 
 export const fetchUsers = () => async dispatch => {
     const response = await axios.get('https://randomuser.me/api/?results=20');
-    dispatch({ type: FETCH_USERS, payload: response.data.results });
+    dispatch(setUsers(response.data.results));
 };

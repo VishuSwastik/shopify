@@ -1,44 +1,44 @@
-import React from 'react'
-import styles from './Login.module.css';
-import tree from '../../assets/tree.png'
+// src/components/User/Login.jsx
+import React, { useState } from 'react';
+import { auth } from '../firebase.js';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/'); // Redirect to homepage after login
+    } catch (error) {
+      console.error("Error logging in: ", error);
+    }
+  };
 
-  
-
-    
   return (
-    <form className={styles.login}>
-      <div className={styles.login_content}>
-        <h1 className={styles.hedding}>
-        Welcome back to  Login
-        </h1>
-        <p>Its great to have you back</p>
-        <label className={styles.inputlable} htmlFor="email">Email</label>
-        <input className={styles.input} type="email" />
-        <label className={styles.inputlable} htmlFor="Password">Password</label>
-        <input className={styles.input}  type="text" />
-        <div className={styles.fp}>
-            <div>
-                <input type="checkbox" />
-            <label htmlFor="">Remember me</label>
-            </div>
-            <div>
-            <label htmlFor="">Forget Password ?</label>
-            </div>
-        </div>
-        
-        <div className={styles.btn}>
-            <button className={styles.lbtn}>Login</button>
-            <button className={styles.cbtn} > <a href="/createAccount">Create Account</a> </button>
-        </div>
-      </div>
-      <div className={styles.login_img}>
-        <img src={tree} alt="" />
-      </div>
+    <form onSubmit={handleLogin}>
+      <h2>Login</h2>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button type="submit">Login</button>
     </form>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
