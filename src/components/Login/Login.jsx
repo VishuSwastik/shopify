@@ -1,4 +1,4 @@
-// src/components/User/Login.jsx
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { auth } from '../firebase.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -37,6 +37,7 @@ const Login = () => {
         required
       />
       <button type="submit">Login</button>
+      <Link to="/create-account"><p>createaccount</p></Link> 
     </form>
   );
 };
